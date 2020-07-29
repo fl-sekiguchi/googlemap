@@ -1,6 +1,49 @@
 <template>
   <section class="container">
     <div>
+      <h1>緯度経度を直接指定して表示（ZOOM神宮前、ZOOM渋谷神山町、ZOOM渋谷笹塚）</h1>
+      <p>すでに緯度経度がわかっている状態なので、APIで余分なリクエストをしなくてもよい</p>
+      <table>
+        <thead>
+          <tr>
+            <th>用途</th>
+            <th>API利用数</th>
+            <th>API利用量/月</th>
+            <th>API利用単価</th>
+            <th>利用金額/月</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>地図の表示</td>
+            <td>1</td>
+            <td>1,000</td>
+            <td>$7/1000回</td>
+            <td>$7</td>
+          </tr>
+          <tr class="sum">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>合計金額</td>
+            <td>$7</td>
+          </tr>
+          <tr class="sum">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>無償分</td>
+            <td>-$200</td>
+          </tr>
+          <tr class="sum">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>請求金額</td>
+            <td>-$193</td>
+          </tr>
+        </tbody>
+      </table>
       <div class="map" ref="googleMap"></div>
     </div>
   </section>
@@ -72,8 +115,18 @@ export default {
 
 <style>
 .map {
-  width: 100vw;
-  height: 100vh;
+  width: 600px;
+  height: 450px;
+}
+table {
+  border-collapse: collapse;
+}
+th, td {
+  border: 1px solid #000;
+  padding: 5px;
+}
+table tr.sum td {
+  border: none;
 }
 .infoWindow a {
   display: block;
