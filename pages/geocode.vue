@@ -1,7 +1,7 @@
 <template>
   <section class="container">
     <div>
-      <h1>住所から緯度経度を算出して表示（ZOOM神宮前、ZOOM渋谷神山町、ZOOM渋谷笹塚）</h1>
+      <h1>住所から緯度経度を取得して表示（ZOOM神宮前、ZOOM渋谷神山町、ZOOM渋谷笹塚）</h1>
       <p>住所から緯度経度を算出するためにAPIを物件の数分リクエストしなければいけない</p>
       <table>
         <thead>
