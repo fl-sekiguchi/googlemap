@@ -255,13 +255,32 @@ export default {
           )
         });
 
-        const infowindow = new this.google.maps.InfoWindow();
-        this.google.maps.event.addListener(marker, 'click', e => {
-            infowindow.setContent(`<div class="infoWindow"><a href="${value.url}" target="_blank"><img src="${value.image}">${value.name}</a></div>`);
-            infowindow.open(map, marker);
+        const infowindow = new this.google.maps.InfoWindow({
+          disableAutoPan: true
         });
-
+        infowindow.setContent(`<div class="infoWindow"><a href="${value.url}" target="_blank"><img src="${value.image}">${value.name}</a></div>`);
+        infowindow.open(map, marker);
       }, undefined);
+
+      map.addListener('dragend', (argument) => {
+        // ここで範囲とって再描画
+        console.log('dragend')
+        const bounds = map.getBounds();
+        console.log(bounds.getNorthEast().lat())
+        console.log(bounds.getSouthWest().lat())
+        console.log(bounds.getNorthEast().lng())
+        console.log(bounds.getSouthWest().lng())
+      });
+
+      map.addListener('zoom_changed', (argument) => {
+        // ここで範囲とって再描画
+        console.log('zoom_changed')
+        const bounds = map.getBounds();
+        console.log(bounds.getNorthEast().lat())
+        console.log(bounds.getSouthWest().lat())
+        console.log(bounds.getNorthEast().lng())
+        console.log(bounds.getSouthWest().lng())
+      });
     }
   },
   async mounted() {
